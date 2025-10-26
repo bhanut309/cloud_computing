@@ -1,0 +1,38 @@
+augmentation:
+  copy_paste: 0.0
+  degrees: 0.0
+  fliplr: 0.5
+  flipud: 0.0
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  mixup: 0.0
+  mosaic: 1.0
+  perspective: 0.0
+  scale: 0.5
+  shear: 0.0
+  translate: 0.1
+batch_size: 4
+box_loss_gain: 0.05
+cache: false
+cls_loss_gain: 0.5
+dataset_path: processed_data/dataset.yaml
+dfl_loss_gain: 1.5
+dropout: 0.0
+epochs: 2
+experiment_name: vaping_detection_v1
+image_size: 640
+label_smoothing: 0.0
+learning_rate: 0.01
+lr_final: 0.01
+mask_ratio: 4
+model_size: n
+momentum: 0.937
+nominal_batch_size: 64
+output_dir: vaping_detection_results
+overlap_mask: true
+patience: 50
+save_period: 10
+warmup_epochs: 3
+weight_decay: 0.0005
+workers: 8

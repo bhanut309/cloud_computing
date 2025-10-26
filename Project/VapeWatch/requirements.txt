@@ -1,0 +1,36 @@
+# VapeWatch - Custom Training Requirements
+# Core ML and Computer Vision
+ultralytics
+opencv-python
+numpy==1.26.4
+torch
+torchvision
+matplotlib
+Pillow
+
+# AWS and SageMaker
+boto3
+sagemaker
+botocore
+
+# Data Processing
+pyyaml
+albumentations
+
+# System dependencies to prevent lzma issues
+# Note: xz library must be installed at system level before Python installation
+# On macOS: brew install xz
+# On Ubuntu/Debian: sudo apt-get install liblzma-dev
+# On CentOS/RHEL: sudo yum install xz-devel
+
+# Python packages for lzma support
+lz4
+backports.lzma
+lzma
+
+# Additional dependencies for stability
+setuptools
+wheel
+pip
+
+# Note: json, base64, io, logging, time, and pathlib are built-in Python modules

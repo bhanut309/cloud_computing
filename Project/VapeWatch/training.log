@@ -1,0 +1,10 @@
+2025-10-26 00:13:14,286 - INFO - Using default configuration
+2025-10-26 00:13:14,286 - INFO - 🚀 Multi-threading enabled with 8 workers
+2025-10-26 00:13:14,286 - INFO - Using device: cpu
+2025-10-26 00:13:14,288 - INFO - Validating dataset...
+2025-10-26 00:13:14,289 - INFO - Dataset validation passed!
+2025-10-26 00:13:14,289 - INFO - Classes: ['cigarette', 'vape']
+2025-10-26 00:13:14,289 - INFO - Number of classes: 2
+2025-10-26 00:13:14,289 - INFO - Loading yolov8n.pt...
+2025-10-26 00:13:14,333 - INFO - Model loaded successfully: yolov8n.pt
+2025-10-26 00:13:14,333 - INFO - Starting training...

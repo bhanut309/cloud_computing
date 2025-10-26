@@ -1,0 +1,102 @@
+# VapeWatch Configuration File
+# Configuration for data preprocessing, training, and deployment
+
+# Data Configuration
+data:
+  input_path: "/Users/tejab/Documents/NUS/Courework/CS5224-Cloud/Project/VapeDataSet"
+  output_path: "./processed_data"
+  image_size: [640, 640]
+  validation_split: 0.2
+  test_split: 0.1
+
+# Data Augmentation Configuration
+augmentation:
+  horizontal_flip: 0.5
+  rotation: 15
+  brightness_contrast: 0.2
+  hue_saturation: 0.1
+  mosaic: 1.0
+  mixup: 0.0
+  copy_paste: 0.0
+
+# Model Configuration
+model:
+  name: "yolov8n.pt"  # yolov8n.pt, yolov8s.pt, yolov8m.pt, yolov8l.pt, yolov8x.pt
+  num_classes: 2
+  class_names: ["cigarette", "vape"]
+
+# Training Configuration
+training:
+  epochs: 100
+  batch_size: 16
+  learning_rate: 0.01
+  weight_decay: 0.0005
+  momentum: 0.937
+  patience: 50
+  save_period: 10
+  warmup_epochs: 3
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  
+  # Loss function weights
+  box_loss_gain: 0.05
+  cls_loss_gain: 0.5
+  dfl_loss_gain: 1.5
+  
+  # Data augmentation parameters
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  erasing: 0.4
+  crop_fraction: 1.0
+  auto_augment: "randaugment"
+  label_smoothing: 0.0
+  nominal_batch_size: 64
+
+# Inference Configuration
+inference:
+  confidence_threshold: 0.5
+  iou_threshold: 0.45
+  device: "auto"  # auto, cpu, cuda, 0, 1, etc.
+
+# SageMaker Configuration
+sagemaker:
+  role: "arn:aws:iam::YOUR_ACCOUNT:role/SageMakerExecutionRole"
+  bucket: "your-sagemaker-bucket"
+  region: "us-east-1"
+  instance_type: "ml.m5.large"
+  instance_count: 1
+  
+  # Training job configuration
+  training:
+    instance_type: "ml.g4dn.xlarge"  # GPU instance for training
+    instance_count: 1
+    max_run_time: 3600  # 1 hour in seconds
+  
+  # Endpoint configuration
+  endpoint:
+    instance_type: "ml.m5.large"
+    instance_count: 1
+    initial_instance_count: 1
+    min_capacity: 1
+    max_capacity: 5
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/vapewatch.log"
+
+# Output Configuration
+output:
+  model_dir: "./models"
+  results_dir: "./results"
+  logs_dir: "./logs"
+  plots_dir: "./plots"

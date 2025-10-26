@@ -1,0 +1,77 @@
+# VapeWatch Training Configuration
+# Optimized for vaping device detection
+
+# Dataset Configuration
+dataset_path: "processed_data/dataset.yaml"
+output_dir: "vaping_detection_results"
+experiment_name: "vaping_detection_v1"
+
+# Model Configuration
+model_size: "n"  # Options: n, s, m, l, x (nano, small, medium, large, extra-large)
+
+# Training Parameters
+epochs: 100
+batch_size: 16
+image_size: 640
+patience: 50
+save_period: 10
+cache: true
+workers: 8
+
+# Multi-threading and Performance
+device: "auto"  # auto, cpu, 0, 1, etc.
+amp: true  # Automatic Mixed Precision
+close_mosaic: 10  # Close mosaic in last 10 epochs
+
+# Learning Rate Configuration
+learning_rate: 0.01
+lr_final: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 3
+warmup_momentum: 0.8
+warmup_bias_lr: 0.1
+
+# Loss Function Weights
+box_loss_gain: 0.05
+cls_loss_gain: 0.5
+dfl_loss_gain: 1.5
+pose_loss_gain: 12.0
+kobj_loss_gain: 2.0
+
+# Regularization
+label_smoothing: 0.0
+dropout: 0.0
+nominal_batch_size: 64
+
+# Data Augmentation (optimized for vaping detection)
+augmentation:
+  # Color space augmentations
+  hsv_h: 0.015      # Hue shift range
+  hsv_s: 0.7        # Saturation shift range  
+  hsv_v: 0.4        # Value shift range
+  
+  # Geometric augmentations
+  degrees: 0.0      # Rotation degrees
+  translate: 0.1    # Translation fraction
+  scale: 0.5        # Scale range
+  shear: 0.0        # Shear degrees
+  perspective: 0.0  # Perspective distortion
+  
+  # Flip augmentations
+  flipud: 0.0       # Vertical flip probability
+  fliplr: 0.5       # Horizontal flip probability
+  
+  # Advanced augmentations
+  mosaic: 1.0       # Mosaic augmentation probability
+  mixup: 0.0        # Mixup augmentation probability
+  copy_paste: 0.0   # Copy-paste augmentation probability
+
+# Mask-related parameters (for instance segmentation if needed)
+overlap_mask: true
+mask_ratio: 4
+
+# Validation and Testing
+val: true
+plots: true
+verbose: true

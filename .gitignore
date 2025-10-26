@@ -1,0 +1,27 @@
+# Python virtual environments
+venv_3_12/
+venv/
+env/
+*.pyc
+__pycache__/
+
+# Large model files
+*.pt
+*.pth
+*.h5
+*.hdf5
+
+# Training data
+processed_data/
+VapeDataSet/
+
+# Results and outputs
+vaping_detection_results/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
